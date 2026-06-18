@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '30/day1.dart';
+import '30/p4.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,6 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BasicUI();
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Homepage());
   }
 }
