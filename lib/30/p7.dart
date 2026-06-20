@@ -1,11 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
-void main() {
-  runApp(Validate());
-}
+import 'dart:convert';
 
 class Validate extends StatefulWidget {
   const Validate({super.key});
@@ -15,15 +10,14 @@ class Validate extends StatefulWidget {
 }
 
 class _ValidateState extends State<Validate> {
-  //function
-  List res = [];
+  List response = [];
 
   Future<void> fetchdata() async {
-    final response = await http.get(Uri.parse("https://dummyjson.com/users"));
-    final data = jsonDecode(response.body);
+    final res = await http.get(Uri.parse("https://dummyjson.com/users"));
 
     setState(() {
-      res = data['users'];
+      final Map<String, dynamic> decodeData = jsonDecode(res.body);
+      response = decodeData['users'];
     });
   }
 
@@ -38,16 +32,17 @@ class _ValidateState extends State<Validate> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Api Validation"),
         backgroundColor: Colors.blue,
+        title: Text("Api Validate"),
       ),
-
       body: ListView.builder(
+        itemCount: response.length,
         itemBuilder: (context, index) {
-          final user = res[index];
-          return ListTile(title: Text(user['firstName'] ?? ''));
+          return ListTile(
+            title: Text(response[index]['firstName']),
+            subtitle: Text(response[index]['email']),
+          );
         },
-        itemCount: res.length,
       ),
     );
   }

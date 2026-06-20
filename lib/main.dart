@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '30/p7.dart';
+import '30/p8.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,6 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Validate());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: CompanyBet());
   }
 }
