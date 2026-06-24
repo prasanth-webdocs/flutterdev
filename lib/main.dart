@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '30/p8.dart';
+import 'getXState/snackbar.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,6 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: CompanyBet());
+    return GetMaterialApp(debugShowCheckedModeBanner: false, home: Snacks());
   }
 }
